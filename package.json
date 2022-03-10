@@ -53,7 +53,9 @@
     ]
   },
   "dependencies": {
-    "@babel/runtime": "^7.17.2"
+    "@babel/runtime": "^7.17.2",
+    "@swc/core": "^1.2.152",
+    "terser-webpack-plugin": "^5.3.1"
   },
   "devDependencies": {
     "@babel/core": "^7.17.5",
@@ -63,9 +65,9 @@
     "@changesets/changelog-github": "^0.4.3",
     "@changesets/cli": "^2.21.0",
     "@preconstruct/cli": "^2.1.5",
-    "@swc/core": "^1.2.143",
     "@swc/jest": "^0.2.17",
     "@types/jest": "^27.4.0",
+    "@types/webpack": "^5.28.0",
     "@typescript-eslint/eslint-plugin": "^5.12.0",
     "@typescript-eslint/parser": "^5.12.0",
     "eslint": "^8.9.0",
