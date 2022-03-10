@@ -1,0 +1,50 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+  "extends": [
+    "standard",
+    "standard-with-typescript",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "rules": {
+    "yoda": "off",
+    "semi": ["error", "always"],
+    "comma-dangle": ["error", "always-multiline"],
+    "@typescript-eslint/no-var-requires": "off",
+    "@typescript-eslint/strict-boolean-expressions": "off",
+    "@typescript-eslint/consistent-type-definitions": "off",
+    "@typescript-eslint/semi": ["error", "always"],
+    "@typescript-eslint/comma-dangle": ["error", "always-multiline"],
+    "@typescript-eslint/space-before-function-paren": ["error", "never"],
+    "@typescript-eslint/no-explicit-any": "error",
+    "@typescript-eslint/triple-slash-reference": ["error", {
+      "types": "prefer-import"
+    }],
+    "@typescript-eslint/member-delimiter-style": ["error", {
+      "multiline": {
+        "delimiter": "semi",
+        "requireLast": true
+      },
+      "singleline": {
+        "delimiter": "semi",
+        "requireLast": false
+      }
+    }]
+  },
+  "env": {
+    "node": true
+  },
+  "overrides": [
+    {
+      "files": [
+        "*.test.{js,jsx,ts,tsx}",
+        "**/__tests__/**"
+      ],
+      "env": {
+        "jest": true
+      }
+    }
+  ]
+}

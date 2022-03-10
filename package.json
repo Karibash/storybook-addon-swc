@@ -1,0 +1,83 @@
+{
+  "name": "storybook-addon-swc",
+  "version": "1.0.0",
+  "description": "Storybook add-on to enable SWC builds.",
+  "main": "dist/storybook-addon-swc.cjs.js",
+  "module": "dist/storybook-addon-swc.esm.js",
+  "types": "dist/storybook-addon-swc.cjs.d.ts",
+  "files": [
+    "src",
+    "dist",
+    "LICENSE",
+    "README.md"
+  ],
+  "keywords": [
+    "typescript",
+    "Storybook",
+    "Addon",
+    "swc",
+    "build"
+  ],
+  "homepage": "https://github.com/Karibash/storybook-addon-swc",
+  "bugs": {
+    "url": "https://github.com/Karibash/storybook-addon-swc/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Karibash/storybook-addon-swc.git"
+  },
+  "license": "MIT",
+  "author": "Karibash",
+  "scripts": {
+    "prepare": "simple-git-hooks",
+    "build:watch": "preconstruct watch",
+    "build": "preconstruct build",
+    "lint": "eslint . --fix",
+    "lint:check": "eslint .",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:dist": "yarn build && jest -c jest.dist.js --no-cache --ci --runInBand",
+    "test:coverage": "jest --coverage --no-cache --ci --runInBand",
+    "changeset": "changeset",
+    "version-apply": "changeset version",
+    "release": "yarn build && changeset publish"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "yarn lint-staged",
+    "post-commit": "git update-index --again"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "eslint . --fix",
+      "git add"
+    ]
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.17.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.17.5",
+    "@babel/plugin-transform-runtime": "^7.17.0",
+    "@babel/preset-env": "^7.16.11",
+    "@babel/preset-typescript": "^7.16.7",
+    "@changesets/changelog-github": "^0.4.3",
+    "@changesets/cli": "^2.21.0",
+    "@preconstruct/cli": "^2.1.5",
+    "@swc/core": "^1.2.143",
+    "@swc/jest": "^0.2.17",
+    "@types/jest": "^27.4.0",
+    "@typescript-eslint/eslint-plugin": "^5.12.0",
+    "@typescript-eslint/parser": "^5.12.0",
+    "eslint": "^8.9.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-config-standard-with-typescript": "^21.0.1",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^6.0.0",
+    "jest": "^27.5.1",
+    "jest-watch-typeahead": "^1.0.0",
+    "lint-staged": "^12.3.4",
+    "simple-git-hooks": "^2.7.0",
+    "typescript": "^4.6.2"
+  }
+}
