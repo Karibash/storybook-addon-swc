@@ -1,17 +1,34 @@
 import { Configuration } from 'webpack';
-import { JsMinifyOptions } from '@swc/core';
+import { Config, JsMinifyOptions } from '@swc/core';
 
-import { replaceMinimizer } from './transformers';
+import { replaceLoader, replaceMinimizer } from './transformers';
 
 export interface StoryBookAddonSwcOptions {
   enable: boolean;
+  enableSwcLoader: boolean;
   enableSwcMinify: boolean;
+  swcLoaderOptions: Config;
   swcMinifyOptions: JsMinifyOptions;
 }
 
 const defaultOptions: StoryBookAddonSwcOptions = {
   enable: true,
+  enableSwcLoader: true,
   enableSwcMinify: true,
+  swcLoaderOptions: {
+    sourceMaps: true,
+    jsc: {
+      parser: {
+        syntax: 'typescript',
+        tsx: true,
+      },
+      transform: {
+        react: {
+          runtime: 'automatic',
+        },
+      },
+    },
+  },
   swcMinifyOptions: {},
 };
 
@@ -19,6 +36,7 @@ const includeSwcConfig = (config: Configuration, options: StoryBookAddonSwcOptio
   if (!options.enable) return config;
 
   const transformers = [];
+  if (options.enableSwcLoader) transformers.push(replaceLoader(options.swcLoaderOptions));
   if (options.enableSwcMinify) transformers.push(replaceMinimizer(options.swcMinifyOptions));
 
   return transformers.reduce((previous, current) => {
