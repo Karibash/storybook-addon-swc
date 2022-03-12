@@ -30,7 +30,11 @@ const defaultOptions: StoryBookAddonSwcOptions = {
       },
     },
   },
-  swcMinifyOptions: {},
+  swcMinifyOptions: {
+    compress: {
+      inline: 0,
+    },
+  },
 };
 
 const includeSwcConfig = (config: Configuration, options: StoryBookAddonSwcOptions): Configuration => {
