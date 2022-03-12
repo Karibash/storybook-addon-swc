@@ -12,15 +12,24 @@
     "README.md"
   ],
   "keywords": [
+    "javascript",
     "typescript",
-    "Storybook",
-    "Addon",
+    "storybook",
+    "addon",
     "swc",
-    "build"
+    "build",
+    "react",
+    "nextjs",
+    "next"
   ],
   "homepage": "https://github.com/Karibash/storybook-addon-swc",
   "bugs": {
     "url": "https://github.com/Karibash/storybook-addon-swc/issues"
+  },
+  "storybook": {
+    "displayName": "SWC Addon",
+    "unsupportedFrameworks": ["vue"],
+    "supportedFrameworks": ["react"]
   },
   "repository": {
     "type": "git",
