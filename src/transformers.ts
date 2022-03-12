@@ -9,7 +9,7 @@ export const createSwcLoader = (options: Config): Record<string, any> => {
   return {
     loader: require.resolve('swc-loader'),
     options: {
-      parseMap: true,
+      parseMap: options.sourceMaps,
       ...options,
     },
   };
@@ -77,4 +77,11 @@ export const replaceMinimizer = (options: JsMinifyOptions): (config: Configurati
       ],
     },
   });
+};
+
+export const disableSourceMap = (config: Configuration): Configuration => {
+  return {
+    ...config,
+    devtool: false,
+  };
 };

@@ -1,7 +1,7 @@
 import { Configuration } from 'webpack';
 import { Config, JsMinifyOptions } from '@swc/core';
 
-import { replaceLoader, replaceMinimizer } from './transformers';
+import { replaceLoader, replaceMinimizer, disableSourceMap } from './transformers';
 
 export interface StoryBookAddonSwcOptions {
   enable: boolean;
@@ -11,12 +11,13 @@ export interface StoryBookAddonSwcOptions {
   swcMinifyOptions: JsMinifyOptions;
 }
 
+const isProduction = process.env.NODE_ENV === 'production';
 const defaultOptions: StoryBookAddonSwcOptions = {
   enable: true,
   enableSwcLoader: true,
   enableSwcMinify: true,
   swcLoaderOptions: {
-    sourceMaps: true,
+    sourceMaps: !isProduction,
     jsc: {
       parser: {
         syntax: 'typescript',
@@ -38,6 +39,7 @@ const includeSwcConfig = (config: Configuration, options: StoryBookAddonSwcOptio
   const transformers = [];
   if (options.enableSwcLoader) transformers.push(replaceLoader(options.swcLoaderOptions));
   if (options.enableSwcMinify) transformers.push(replaceMinimizer(options.swcMinifyOptions));
+  if (!options.swcLoaderOptions.sourceMaps) transformers.push(disableSourceMap);
 
   return transformers.reduce((previous, current) => {
     return current(previous);
