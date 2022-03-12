@@ -25,6 +25,6 @@
     "jest.config.js",
     "jest.dist.js"
   ],
-  "include": ["src"],
+  "include": ["src", "test"],
   "exclude": ["node_modules"]
 }
