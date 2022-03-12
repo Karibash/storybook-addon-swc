@@ -9,7 +9,7 @@ export const createSwcLoader = (options: Config): Record<string, any> => {
   return {
     loader: require.resolve('swc-loader'),
     options: {
-      parseMap: options.sourceMaps,
+      parseMap: !!options.sourceMaps,
       ...options,
     },
   };
