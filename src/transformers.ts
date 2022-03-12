@@ -28,7 +28,7 @@ export const replaceRuleSetRule = (rule: ModuleOptions['rules'][0], options: Con
 
   if (rule.loader) {
     if (!babelLoaderPattern.test(rule.loader)) return rule;
-    return { ...rule, use: [createSwcLoader(options)] };
+    return { ...rule, loader: undefined, use: [createSwcLoader(options)] };
   }
 
   if (typeof rule.use === 'string') {
