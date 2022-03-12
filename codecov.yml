@@ -1,0 +1,7 @@
+comment:
+  layout: 'reach, files'
+  behavior: once
+  require_changes: true
+  require_base: no
+  require_head: yes
+  branches: null
