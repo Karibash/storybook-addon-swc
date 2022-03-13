@@ -1,7 +1,13 @@
 import { ModuleOptions } from 'webpack';
 import TerserPlugin from 'terser-webpack-plugin';
 
-import { createSwcLoader, replaceRuleSetRule, replaceLoader, replaceMinimizer } from '../src/transformers';
+import {
+  createSwcLoader,
+  replaceRuleSetRule,
+  replaceLoader,
+  replaceMinimizer,
+  disableSourceMap,
+} from '../src/transformers';
 
 const swcLoaderPattern = /swc-loader/;
 const babelLoaderPattern = /babel-loader/;
@@ -299,5 +305,17 @@ describe('replaceMinimizer', () => {
     const config = transformer({ optimization: { minimizer: [new TerserPlugin()] } });
     const minimizer = config.optimization?.minimizer?.find(minimizer => minimizer instanceof TerserPlugin);
     expect(minimizer.options.minimizer.implementation.name).toEqual('swcMinify');
+  });
+});
+
+describe('disableSourceMap', () => {
+  it('Pass empty config', () => {
+    const config = disableSourceMap({});
+    expect(config).toEqual({ devtool: false });
+  });
+
+  it('Pass devtool property', () => {
+    const config = disableSourceMap({ devtool: 'source-map' });
+    expect(config).toEqual({ devtool: false });
   });
 });
