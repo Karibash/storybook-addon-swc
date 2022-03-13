@@ -1,5 +1,6 @@
 import { Configuration } from 'webpack';
 import { Config, JsMinifyOptions } from '@swc/core';
+import merge from 'deepmerge';
 
 import { replaceLoader, replaceMinimizer, disableSourceMap } from './transformers';
 
@@ -51,11 +52,9 @@ const includeSwcConfig = (config: Configuration, options: StoryBookAddonSwcOptio
 };
 
 export const webpack = (config: Configuration, options: Partial<StoryBookAddonSwcOptions>): Configuration => {
-  const mergedOptions: StoryBookAddonSwcOptions = { ...defaultOptions, ...options };
-  return includeSwcConfig(config, mergedOptions);
+  return includeSwcConfig(config, merge(defaultOptions, options));
 };
 
 export const managerWebpack = (config: Configuration, options: Partial<StoryBookAddonSwcOptions>): Configuration => {
-  const mergedOptions: StoryBookAddonSwcOptions = { ...defaultOptions, ...options };
-  return includeSwcConfig(config, mergedOptions);
+  return includeSwcConfig(config, merge(defaultOptions, options));
 };
