@@ -1,5 +1,15 @@
 # storybook-addon-swc
 
+## 1.1.0
+
+### Minor Changes
+
+- [#5](https://github.com/Karibash/storybook-addon-swc/pull/5) [`d8c02ef`](https://github.com/Karibash/storybook-addon-swc/commit/d8c02ef518cf7a56fee9e07c019f58c4c3729ade) Thanks [@Karibash](https://github.com/Karibash)! - Make options deep merge
+
+### Patch Changes
+
+- [#7](https://github.com/Karibash/storybook-addon-swc/pull/7) [`30466a6`](https://github.com/Karibash/storybook-addon-swc/commit/30466a64a1ba2f7d96c41f26c907423b2828e7bb) Thanks [@Karibash](https://github.com/Karibash)! - Make it so that terser is also available in v4
+
 ## 1.0.1
 
 ### Patch Changes
