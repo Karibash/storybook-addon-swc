@@ -68,13 +68,13 @@ export const replaceMinimizer = (options: JsMinifyOptions): (config: Configurati
   return (config: Configuration) => ({
     ...config,
     optimization: {
-      minimizer: [
-        new TerserPlugin({
-          minify: TerserPlugin.swcMinify,
-          // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          terserOptions: options as any,
-        }),
-      ],
+      minimizer: 0 < config.optimization?.minimizer?.length
+        ? [new TerserPlugin({
+            minify: TerserPlugin.swcMinify,
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            terserOptions: options as any,
+          })]
+        : [],
     },
   });
 };
