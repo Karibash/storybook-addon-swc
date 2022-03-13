@@ -22,7 +22,7 @@ export const replaceRuleSetRule = (rule: ModuleOptions['rules'][0], options: Con
   if (rule.oneOf) {
     return {
       ...rule,
-      oneOf: replaceRuleSetRule(rule.oneOf, options),
+      oneOf: rule.oneOf.map(rule => replaceRuleSetRule(rule, options)),
     };
   }
 
