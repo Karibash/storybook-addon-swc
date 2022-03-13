@@ -1,5 +1,6 @@
 import { Configuration } from 'webpack';
 import { Config, JsMinifyOptions } from '@swc/core';
+import { Options } from '@storybook/core-common';
 import merge from 'deepmerge';
 
 import { replaceLoader, replaceMinimizer, disableSourceMap } from './transformers';
@@ -51,10 +52,16 @@ const includeSwcConfig = (config: Configuration, options: StoryBookAddonSwcOptio
   }, config);
 };
 
-export const webpack = (config: Configuration, options: Partial<StoryBookAddonSwcOptions>): Configuration => {
-  return includeSwcConfig(config, merge(defaultOptions, options));
+const addonFilePattern = /storybook-addon-swc(.(cjs|esm))?.js/;
+const getAddonOptions = (options: Options): StoryBookAddonSwcOptions => {
+  const addonOptions = options.presetsList?.find(preset => addonFilePattern.test(preset.name)).options ?? {};
+  return merge(defaultOptions, addonOptions);
 };
 
-export const managerWebpack = (config: Configuration, options: Partial<StoryBookAddonSwcOptions>): Configuration => {
-  return includeSwcConfig(config, merge(defaultOptions, options));
+export const webpack = (config: Configuration, options: Options): Configuration => {
+  return includeSwcConfig(config, getAddonOptions(options));
+};
+
+export const managerWebpack = (config: Configuration, options: Options): Configuration => {
+  return includeSwcConfig(config, getAddonOptions(options));
 };
