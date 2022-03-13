@@ -1,9 +1,29 @@
 import { ModuleOptions } from 'webpack';
 
-import { createSwcLoader, replaceRuleSetRule } from '../src/transformers';
+import { createSwcLoader, replaceRuleSetRule, replaceLoader } from '../src/transformers';
 
 const swcLoaderPattern = /swc-loader/;
 const babelLoaderPattern = /babel-loader/;
+
+const curriedReplaceRuleSetRule = (rule: ModuleOptions['rules'][0]): ModuleOptions['rules'][0] => {
+  return replaceRuleSetRule(rule, {});
+};
+
+const containsLoader = (pattern: RegExp, rule: ModuleOptions['rules'][0]): ModuleOptions['rules'][0] => {
+  if (rule.oneOf) return rule.oneOf.some(rule => containsLoader(pattern, rule));
+  if (pattern.test(rule.loader)) return true;
+  if (typeof rule.use === 'string') {
+    if (pattern.test(rule.use)) return true;
+  }
+  if (Array.isArray(rule.use)) {
+    return rule.use.some(use => {
+      if (typeof use === 'string') return pattern.test(use);
+      if (typeof use === 'object') return pattern.test(use.loader);
+      return false;
+    });
+  }
+  return false;
+};
 
 describe('createSwcLoader', () => {
   it('Pass empty options', () => {
@@ -35,26 +55,6 @@ describe('createSwcLoader', () => {
 });
 
 describe('replaceRuleSetRule', () => {
-  const curriedReplaceRuleSetRule = (rule: ModuleOptions['rules'][0]): ModuleOptions['rules'][0] => {
-    return replaceRuleSetRule(rule, {});
-  };
-
-  const containsLoader = (pattern: RegExp, rule: ModuleOptions['rules'][0]): ModuleOptions['rules'][0] => {
-    if (rule.oneOf) return rule.oneOf.some(rule => containsLoader(pattern, rule));
-    if (pattern.test(rule.loader)) return true;
-    if (typeof rule.use === 'string') {
-      if (pattern.test(rule.use)) return true;
-    }
-    if (Array.isArray(rule.use)) {
-      return rule.use.some(use => {
-        if (typeof use === 'string') return pattern.test(use);
-        if (typeof use === 'object') return pattern.test(use.loader);
-        return false;
-      });
-    }
-    return false;
-  };
-
   describe('loader property by string', () => {
     it('Pass rules without the test option', () => {
       const rule = { loader: 'babel-loader' };
@@ -265,5 +265,23 @@ describe('replaceRuleSetRule', () => {
       const rule = { test: /\.(jsx?|tsx?)$/, type: 'asset/source' };
       expect(curriedReplaceRuleSetRule(rule)).toEqual(rule);
     });
+  });
+});
+
+describe('replaceLoader', () => {
+  const transformer = replaceLoader({});
+
+  it('Pass babel-loader', () => {
+    const config = transformer({ module: { rules: [{ test: /\.(jsx?|tsx?)$/, loader: 'babel-loader' }] } });
+    const rules = config.module?.rules ?? [];
+    expect(rules.some(rule => containsLoader(swcLoaderPattern, rule))).toBeTruthy();
+    expect(rules.some(rule => containsLoader(babelLoaderPattern, rule))).toBeFalsy();
+  });
+
+  it('Pass other than babel-loader', () => {
+    const config = transformer({ module: { rules: [{ test: /\.(jsx?|tsx?)$/, loader: 'dummy-loader' }] } });
+    const rules = config.module?.rules ?? [];
+    expect(rules.some(rule => containsLoader(swcLoaderPattern, rule))).toBeFalsy();
+    expect(rules.some(rule => containsLoader(babelLoaderPattern, rule))).toBeFalsy();
   });
 });
