@@ -90,6 +90,7 @@
     "@changesets/changelog-github": "^0.4.3",
     "@changesets/cli": "^2.21.0",
     "@preconstruct/cli": "^2.1.5",
+    "@storybook/core-common": "^6.4.19",
     "@swc/jest": "^0.2.17",
     "@types/jest": "^27.4.0",
     "@types/webpack": "^5.28.0",
@@ -106,6 +107,7 @@
     "lint-staged": "^12.3.4",
     "simple-git-hooks": "^2.7.0",
     "terser-webpack-plugin": "^5.3.1",
-    "typescript": "^4.6.2"
+    "typescript": "^4.6.2",
+    "webpack": "^5.70.0"
   }
 }
