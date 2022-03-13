@@ -12,6 +12,8 @@
     "README.md"
   ],
   "keywords": [
+    "storybook-addons",
+    "code",
     "javascript",
     "typescript",
     "storybook",
@@ -27,8 +29,8 @@
     "url": "https://github.com/Karibash/storybook-addon-swc/issues"
   },
   "storybook": {
-    "displayName": "SWC Addon",
-    "unsupportedFrameworks": ["vue"],
+    "displayName": "SWC",
+    "unsupportedFrameworks": ["angular", "vue"],
     "supportedFrameworks": ["react"]
   },
   "repository": {
