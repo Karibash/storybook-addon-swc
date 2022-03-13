@@ -1,5 +1,11 @@
 # storybook-addon-swc
 
+## 1.1.1
+
+### Patch Changes
+
+- [#8](https://github.com/Karibash/storybook-addon-swc/pull/8) [`db098cd`](https://github.com/Karibash/storybook-addon-swc/commit/db098cd39a9e5663545716f4b917cf5e2e578da9) Thanks [@Karibash](https://github.com/Karibash)! - Fix wrong process of getting options
+
 ## 1.1.0
 
 ### Minor Changes
