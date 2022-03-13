@@ -1,6 +1,6 @@
 {
   "name": "storybook-addon-swc",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Storybook add-on to enable SWC builds.",
   "main": "dist/storybook-addon-swc.cjs.js",
   "module": "dist/storybook-addon-swc.esm.js",
