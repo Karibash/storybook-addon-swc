@@ -1,6 +1,7 @@
 import { ModuleOptions } from 'webpack';
+import TerserPlugin from 'terser-webpack-plugin';
 
-import { createSwcLoader, replaceRuleSetRule, replaceLoader } from '../src/transformers';
+import { createSwcLoader, replaceRuleSetRule, replaceLoader, replaceMinimizer } from '../src/transformers';
 
 const swcLoaderPattern = /swc-loader/;
 const babelLoaderPattern = /babel-loader/;
@@ -283,5 +284,20 @@ describe('replaceLoader', () => {
     const rules = config.module?.rules ?? [];
     expect(rules.some(rule => containsLoader(swcLoaderPattern, rule))).toBeFalsy();
     expect(rules.some(rule => containsLoader(babelLoaderPattern, rule))).toBeFalsy();
+  });
+});
+
+describe('replaceMinimizer', () => {
+  const transformer = replaceMinimizer({});
+
+  it('If no minimizer', () => {
+    const config = transformer({ optimization: { minimizer: [] } });
+    expect(config).toEqual({ optimization: { minimizer: [] } });
+  });
+
+  it('If there is a minimizer', () => {
+    const config = transformer({ optimization: { minimizer: [new TerserPlugin()] } });
+    const minimizer = config.optimization?.minimizer?.find(minimizer => minimizer instanceof TerserPlugin);
+    expect(minimizer.options.minimizer.implementation.name).toEqual('swcMinify');
   });
 });
