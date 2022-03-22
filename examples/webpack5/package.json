@@ -1,0 +1,24 @@
+{
+  "name": "storybook-addon-swc-webpack5-example",
+  "version": "0.0.0",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "start": "start-storybook -p 6006",
+    "build": "build-storybook",
+    "build:swc": "BUILD_TOOL=swc build-storybook"
+  },
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "devDependencies": {
+    "@storybook/addon-a11y": "^6.4.19",
+    "@storybook/addon-essentials": "^6.4.19",
+    "@storybook/addon-links": "^6.4.19",
+    "@storybook/builder-webpack5": "^6.4.19",
+    "@storybook/manager-webpack5": "^6.4.19",
+    "@storybook/react": "^6.4.19",
+    "storybook-addon-swc": "*"
+  }
+}
