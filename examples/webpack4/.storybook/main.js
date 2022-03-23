@@ -1,3 +1,5 @@
+const SpeedMeasurePlugin = require('speed-measure-webpack-plugin');
+
 module.exports = {
   stories: [
     '../src/**/*.stories.@(js|jsx|ts|tsx)',
@@ -13,4 +15,8 @@ module.exports = {
       },
     },
   ],
+  webpackFinal(config) {
+    config.plugins.push(new SpeedMeasurePlugin());
+    return config;
+  },
 };
