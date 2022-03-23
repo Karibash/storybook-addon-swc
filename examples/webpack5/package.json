@@ -4,6 +4,7 @@
   "license": "MIT",
   "private": true,
   "scripts": {
+    "postinstall": "sh ../common/codegen.sh ./generated 50",
     "start": "start-storybook -p 6006",
     "build": "build-storybook",
     "build:swc": "BUILD_TOOL=swc build-storybook"

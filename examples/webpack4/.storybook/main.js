@@ -2,7 +2,7 @@ const SpeedMeasurePlugin = require('speed-measure-webpack-plugin');
 
 module.exports = {
   stories: [
-    '../src/**/*.stories.@(js|jsx|ts|tsx)',
+    '../generated/**/*.stories.@(js|jsx|ts|tsx)',
   ],
   addons: [
     '@storybook/addon-a11y',
