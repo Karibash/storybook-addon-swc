@@ -1,3 +1,5 @@
+const SpeedMeasurePlugin = require('speed-measure-webpack-plugin');
+
 module.exports = {
   core: {
     builder: 'webpack5',
@@ -16,4 +18,8 @@ module.exports = {
       },
     },
   ],
+  webpackFinal(config) {
+    config.plugins.push(new SpeedMeasurePlugin());
+    return config;
+  },
 };
