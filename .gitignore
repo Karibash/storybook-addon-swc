@@ -245,4 +245,5 @@ Temporary Items
 ### Output
 .build/
 dist/
+examples/**/generated
 examples/**/storybook-static
