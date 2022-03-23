@@ -8,6 +8,11 @@
 
 Storybook addon that improves build time by building with swc.
 
+## 🗒 Examples
+
+- [webpack4](examples/webpack4)
+- [webpack5](examples/webpack5)
+
 ## 🚀 Installation
 
 ```
