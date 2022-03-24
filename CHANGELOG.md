@@ -1,5 +1,11 @@
 # storybook-addon-swc
 
+## 1.1.4
+
+### Patch Changes
+
+- [#18](https://github.com/Karibash/storybook-addon-swc/pull/18) [`f7448b3`](https://github.com/Karibash/storybook-addon-swc/commit/f7448b39db8f4e450a25989956a6051a260f1197) Thanks [@Karibash](https://github.com/Karibash)! - Fix typo in README.md
+
 ## 1.1.3
 
 ### Patch Changes
