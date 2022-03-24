@@ -62,6 +62,18 @@ module.exports = {
 | `swcLoaderOptions` | Options for swc loader.                                                                     | [object](https://swc.rs/docs/configuration/compilation)  | [see](https://github.com/Karibash/storybook-addon-swc/blob/master/src/index.ts#L19-L32) |
 | `swcMinifyOptions` | Options for swc minify.                                                                     | [object](https://swc.rs/docs/configuration/minification) | [see](https://github.com/Karibash/storybook-addon-swc/blob/master/src/index.ts#L33-L37) |
 
+## 🎓 Alternative
+
+### [storybook-addon-turbo-build](https://github.com/pocka/storybook-addon-turbo-build)
+
+This add-on replaces babel-loader with esbuild-loader.  
+I used storybook-addon-swc as a reference in developing the storybook-addon-swc.
+
+### [storybook-builder-vite](https://github.com/eirslett/storybook-builder-vite)
+
+This builder changes the build system of Storybook from Webpack to Vite.  
+Vite is very fast because it does not bundle during development.
+
 ## 🤝 Contributing
 
 Contributions, issues and feature requests are welcome.
