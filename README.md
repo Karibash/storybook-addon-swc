@@ -67,7 +67,7 @@ module.exports = {
 ### [storybook-addon-turbo-build](https://github.com/pocka/storybook-addon-turbo-build)
 
 This add-on replaces babel-loader with esbuild-loader.  
-I used storybook-addon-swc as a reference in developing the storybook-addon-swc.
+It was used as a reference in the development of storybook-addon-swc.
 
 ### [storybook-builder-vite](https://github.com/eirslett/storybook-builder-vite)
 
