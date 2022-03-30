@@ -6,7 +6,7 @@ export type Props = {
   size: 'small' | 'medium' | 'large';
 };
 
-export const Button: React.FC<Props> = ({
+const Button: React.FC<Props> = ({
   theme = 'primary',
   size = 'medium',
   children,
@@ -22,3 +22,5 @@ export const Button: React.FC<Props> = ({
     </button>
   );
 };
+
+export default Button;
