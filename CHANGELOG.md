@@ -1,5 +1,11 @@
 # storybook-addon-swc
 
+## 1.1.5
+
+### Patch Changes
+
+- [#24](https://github.com/Karibash/storybook-addon-swc/pull/24) [`8b587da`](https://github.com/Karibash/storybook-addon-swc/commit/8b587daf84044b4a66c95ee2eeb1530d21e9295d) Thanks [@Karibash](https://github.com/Karibash)! - Add documentation about swc plugins feature
+
 ## 1.1.4
 
 ### Patch Changes
