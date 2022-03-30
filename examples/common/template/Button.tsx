@@ -1,5 +1,5 @@
 import React from 'react';
-import './Button.css';
+import styles from'./Button.module.css';
 
 export type Props = {
   theme: 'primary' | 'secondary';
@@ -14,7 +14,7 @@ export const Button: React.FC<Props> = ({
 }) => {
   return (
     <button
-      className={`button button--${theme} button--${size}`}
+      className={`${styles.base} ${styles[theme]} ${styles[size]}`}
       type="button"
       {...props}
     >
