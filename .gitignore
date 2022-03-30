@@ -247,3 +247,4 @@ Temporary Items
 dist/
 examples/**/generated
 examples/**/storybook-static
+examples/**/yarn.lock
