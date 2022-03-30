@@ -1,11 +1,11 @@
 import { Configuration, ModuleOptions, RuleSetRule } from 'webpack';
-import { Config, JsMinifyOptions } from '@swc/core';
+import { Options as SWCLoaderOptions, JsMinifyOptions } from '@swc/core';
 import TerserPlugin from 'terser-webpack-plugin';
 
 const babelLoaderPattern = /babel-loader/;
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const createSwcLoader = (options: Config): Record<string, any> => {
+export const createSwcLoader = (options: SWCLoaderOptions): Record<string, any> => {
   return {
     loader: require.resolve('swc-loader'),
     options: {
@@ -15,7 +15,7 @@ export const createSwcLoader = (options: Config): Record<string, any> => {
   };
 };
 
-export const replaceRuleSetRule = (rule: ModuleOptions['rules'][0], options: Config): RuleSetRule => {
+export const replaceRuleSetRule = (rule: ModuleOptions['rules'][0], options: SWCLoaderOptions): RuleSetRule => {
   if (!('test' in rule && rule.test instanceof RegExp)) return rule;
   if (!rule.test.test('dummy.js') && !rule.test.test('dummy.ts')) return rule;
 
@@ -54,7 +54,7 @@ export const replaceRuleSetRule = (rule: ModuleOptions['rules'][0], options: Con
   return rule;
 };
 
-export const replaceLoader = (options: Config): (config: Configuration) => Configuration => {
+export const replaceLoader = (options: SWCLoaderOptions): (config: Configuration) => Configuration => {
   return (config: Configuration) => ({
     ...config,
     module: {
