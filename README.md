@@ -62,6 +62,29 @@ module.exports = {
 | `swcLoaderOptions` | Options for swc loader.                                                                     | [object](https://swc.rs/docs/configuration/compilation)  | [see](https://github.com/Karibash/storybook-addon-swc/blob/master/src/index.ts#L19-L32) |
 | `swcMinifyOptions` | Options for swc minify.                                                                     | [object](https://swc.rs/docs/configuration/minification) | [see](https://github.com/Karibash/storybook-addon-swc/blob/master/src/index.ts#L33-L37) |
 
+### SWC Plugins
+
+The SWC plugins feature is still experimental, but can be used by changing the settings as follows.
+
+```js
+module.exports = {
+  addons: [
+    {
+      name: 'storybook-addon-swc',
+      options: {
+        swcLoaderOptions: {
+          jsc: {
+            experimental: {
+              plugins: [['plugin-name', {}]],
+            },
+          },
+        },
+      },
+    },
+  ],
+};
+```
+
 ## 🎓 Alternative
 
 ### [storybook-addon-turbo-build](https://github.com/pocka/storybook-addon-turbo-build)
