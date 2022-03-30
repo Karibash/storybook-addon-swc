@@ -1,5 +1,11 @@
 # storybook-addon-swc
 
+## 1.1.6
+
+### Patch Changes
+
+- [#27](https://github.com/Karibash/storybook-addon-swc/pull/27) [`ed714ba`](https://github.com/Karibash/storybook-addon-swc/commit/ed714baecdb02df7efaebdeb8da4ef47d74c1e50) Thanks [@Karibash](https://github.com/Karibash)! - Fix a bug that broke builds when using @storybook/testing-library
+
 ## 1.1.5
 
 ### Patch Changes
