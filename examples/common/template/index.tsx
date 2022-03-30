@@ -1,12 +1,12 @@
 import React from 'react';
-import './Button.css';
+import styles from'./Button.module.css';
 
 export type Props = {
   theme: 'primary' | 'secondary';
   size: 'small' | 'medium' | 'large';
 };
 
-export const Button: React.FC<Props> = ({
+const Button: React.FC<Props> = ({
   theme = 'primary',
   size = 'medium',
   children,
@@ -14,7 +14,7 @@ export const Button: React.FC<Props> = ({
 }) => {
   return (
     <button
-      className={`button button--${theme} button--${size}`}
+      className={`${styles.base} ${styles[theme]} ${styles[size]}`}
       type="button"
       {...props}
     >
@@ -22,3 +22,5 @@ export const Button: React.FC<Props> = ({
     </button>
   );
 };
+
+export default Button;
