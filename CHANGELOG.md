@@ -1,5 +1,11 @@
 # storybook-addon-swc
 
+## 1.1.7
+
+### Patch Changes
+
+- [#30](https://github.com/Karibash/storybook-addon-swc/pull/30) [`52fcb9a`](https://github.com/Karibash/storybook-addon-swc/commit/52fcb9a3979f1e18284651a4d0405d38516523e9) Thanks [@Karibash](https://github.com/Karibash)! - Add webpack to peerDependencies
+
 ## 1.1.6
 
 ### Patch Changes
