@@ -75,10 +75,14 @@
     "swc-loader": "^0.1.15"
   },
   "peerDependencies": {
-    "terser-webpack-plugin": "^4.0.0 || ^5.0.0"
+    "terser-webpack-plugin": "^4.0.0 || ^5.0.0",
+    "webpack": "^4.0.0 || ^5.0.0"
   },
   "peerDependenciesMeta": {
     "terser-webpack-plugin": {
+      "optional": true
+    },
+    "webpack": {
       "optional": true
     }
   },
