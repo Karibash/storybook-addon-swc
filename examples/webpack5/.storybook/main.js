@@ -18,6 +18,10 @@ module.exports = {
       },
     },
   ],
+  managerWebpack(config) {
+    config.plugins.push(new SpeedMeasurePlugin());
+    return config;
+  },
   webpackFinal(config) {
     config.plugins.push(new SpeedMeasurePlugin());
     return config;
