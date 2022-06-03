@@ -94,7 +94,6 @@
     "@changesets/changelog-github": "^0.4.3",
     "@changesets/cli": "^2.21.0",
     "@preconstruct/cli": "^2.1.5",
-    "@storybook/core-common": "^6.4.19",
     "@swc/jest": "^0.2.17",
     "@types/jest": "^27.4.0",
     "@types/webpack": "^5.28.0",
