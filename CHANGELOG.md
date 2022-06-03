@@ -1,5 +1,11 @@
 # storybook-addon-swc
 
+## 1.1.8
+
+### Patch Changes
+
+- [#34](https://github.com/Karibash/storybook-addon-swc/pull/34) [`55a8b85`](https://github.com/Karibash/storybook-addon-swc/commit/55a8b85b45e2c775a0eae13c7f7250d506e20192) Thanks [@Karibash](https://github.com/Karibash)! - Remove unused dependencies
+
 ## 1.1.7
 
 ### Patch Changes
