@@ -1,6 +1,5 @@
 import { Configuration, ModuleOptions, RuleSetRule } from 'webpack';
 import { Options as SWCLoaderOptions, JsMinifyOptions } from '@swc/core';
-import TerserPlugin from 'terser-webpack-plugin';
 
 const babelLoaderPattern = /babel-loader/;
 
@@ -65,6 +64,7 @@ export const replaceLoader = (options: SWCLoaderOptions): (config: Configuration
 };
 
 export const replaceMinimizer = (options: JsMinifyOptions): (config: Configuration) => Configuration => {
+  const TerserPlugin = require('terser-webpack-plugin');
   return (config: Configuration) => ({
     ...config,
     optimization: {
