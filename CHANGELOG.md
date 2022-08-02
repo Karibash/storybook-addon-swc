@@ -1,5 +1,11 @@
 # storybook-addon-swc
 
+## 1.1.8
+
+### Patch Changes
+
+- [#39](https://github.com/Karibash/storybook-addon-swc/pull/39) [`67d3b63`](https://github.com/Karibash/storybook-addon-swc/commit/67d3b630395e80a380eeb81906cf2239da997c13) Thanks [@Karibash](https://github.com/Karibash)! - Make it import when using TerserPlugin
+
 ## 1.1.7
 
 ### Patch Changes
