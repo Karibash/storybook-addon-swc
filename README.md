@@ -59,8 +59,8 @@ module.exports = {
 | `enable`           | If set to false, this add-on will be disabled.                                              | boolean                                                  | `true`                                                                                  |
 | `enableSwcLoader`  | If set to false, swc-loader is disabled and babel-loader is used.                           | boolean                                                  | `true`                                                                                  |
 | `enableSwcMinify`  | If set to false, minify using swc is disabled and minify using conventional terser is used. | boolean                                                  | `true`                                                                                  |
-| `swcLoaderOptions` | Options for swc loader.                                                                     | [object](https://swc.rs/docs/configuration/compilation)  | [see](https://github.com/Karibash/storybook-addon-swc/blob/master/src/index.ts#L19-L32) |
-| `swcMinifyOptions` | Options for swc minify.                                                                     | [object](https://swc.rs/docs/configuration/minification) | [see](https://github.com/Karibash/storybook-addon-swc/blob/master/src/index.ts#L33-L37) |
+| `swcLoaderOptions` | Options for swc loader.                                                                     | [object](https://swc.rs/docs/configuration/compilation)  | [see](https://github.com/Karibash/storybook-addon-swc/blob/main/src/index.ts#L21-L35) |
+| `swcMinifyOptions` | Options for swc minify.                                                                     | [object](https://swc.rs/docs/configuration/minification) | [see](https://github.com/Karibash/storybook-addon-swc/blob/main/src/index.ts#L36-L40) |
 
 ### SWC Plugins
 
