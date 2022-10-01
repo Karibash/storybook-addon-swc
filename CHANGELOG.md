@@ -1,5 +1,11 @@
 # storybook-addon-swc
 
+## 1.1.9
+
+### Patch Changes
+
+- [#44](https://github.com/Karibash/storybook-addon-swc/pull/44) [`8866f93`](https://github.com/Karibash/storybook-addon-swc/commit/8866f933292f9cf653bdce184eb25a454597b658) Thanks [@shinnoki](https://github.com/shinnoki)! - Fix replaceMinimizer to preserve the original config (Fix #43)
+
 ## 1.1.8
 
 ### Patch Changes
