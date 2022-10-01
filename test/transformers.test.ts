@@ -306,6 +306,11 @@ describe('replaceMinimizer', () => {
     const minimizer = config.optimization?.minimizer?.find(minimizer => minimizer instanceof TerserPlugin);
     expect(minimizer.options.minimizer.implementation.name).toEqual('swcMinify');
   });
+
+  it('Preserve the rest optimization config other than minimizer', () => {
+    const config = transformer({ optimization: { moduleIds: 'named', minimizer: [] } });
+    expect(config).toEqual({ optimization: { moduleIds: 'named', minimizer: [] } });
+  });
 });
 
 describe('disableSourceMap', () => {
