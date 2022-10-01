@@ -68,6 +68,7 @@ export const replaceMinimizer = (options: JsMinifyOptions): (config: Configurati
   return (config: Configuration) => ({
     ...config,
     optimization: {
+      ...config.optimization,
       minimizer: 0 < config.optimization?.minimizer?.length
         ? [new TerserPlugin({
             minify: TerserPlugin.swcMinify,
