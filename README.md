@@ -16,7 +16,7 @@ Storybook addon that improves build time by building with swc.
 ## 🚀 Installation
 
 ```
-$ npm install -D storybook-addon-swc
+$ npm install -D storybook-addon-swc @swc/core
 ```
 
 ## 👏 Getting Started
