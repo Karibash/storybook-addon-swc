@@ -70,15 +70,18 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.17.2",
-    "@swc/core": "^1.2.152",
     "deepmerge": "^4.2.2",
     "swc-loader": "^0.1.15"
   },
   "peerDependencies": {
+    "@swc/core": "^1.2.152",
     "terser-webpack-plugin": "^4.0.0 || ^5.0.0",
     "webpack": "^4.0.0 || ^5.0.0"
   },
   "peerDependenciesMeta": {
+    "@swc/core": {
+      "optional": false
+    },
     "terser-webpack-plugin": {
       "optional": true
     },
@@ -95,6 +98,7 @@
     "@changesets/cli": "^2.21.0",
     "@preconstruct/cli": "^2.1.5",
     "@storybook/core-common": "^6.4.19",
+    "@swc/core": "^1.2.152",
     "@swc/jest": "^0.2.17",
     "@types/jest": "^27.4.0",
     "@types/webpack": "^5.28.0",
