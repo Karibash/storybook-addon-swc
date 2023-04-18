@@ -1,5 +1,11 @@
 # storybook-addon-swc
 
+## 1.2.0
+
+### Minor Changes
+
+- [#48](https://github.com/Karibash/storybook-addon-swc/pull/48) [`205cca9`](https://github.com/Karibash/storybook-addon-swc/commit/205cca999183fbdc8e9985348e8bc5788f5756b9) Thanks [@radist2s](https://github.com/radist2s)! - Relocate @swc/core from dependencies to devDependencies and peerDependencies
+
 ## 1.1.9
 
 ### Patch Changes
