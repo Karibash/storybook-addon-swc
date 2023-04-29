@@ -2,6 +2,7 @@
   "name": "storybook-addon-swc",
   "version": "1.2.0",
   "description": "Storybook add-on to enable SWC builds.",
+  "packageManager": "yarn@3.5.0",
   "main": "dist/storybook-addon-swc.cjs.js",
   "module": "dist/storybook-addon-swc.esm.js",
   "types": "dist/storybook-addon-swc.cjs.d.ts",

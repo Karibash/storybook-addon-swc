@@ -110,10 +110,13 @@ dist
 
 # yarn v2
 
-.yarn/cache
-.yarn/unplugged
-.yarn/build-state.yml
 .pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
 
 ### JetBrains template
 # Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio, WebStorm and Rider
